@@ -17,7 +17,7 @@ export const MENU_ITEMS = [
         category: 'Food',
         image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80',
         tags: ['New', 'Healthy'],
-        bestseller: false,
+        bestseller: true,
     },
     {
         id: '3',
