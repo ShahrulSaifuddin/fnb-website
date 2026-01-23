@@ -7,21 +7,26 @@ import { PromoSection } from './features/promo/PromoSection';
 import { GallerySection } from './features/gallery/GallerySection';
 import { OrgChart } from './features/org/OrgChart';
 import { ContactSection } from './features/contact/ContactSection';
+import { CartProvider } from './contexts/CartContext';
+import { Cart } from './components/cart/Cart';
 
 function App() {
   return (
-    <Layout>
-      <HeroSection />
-      <BestSellerSection />
-      <PromoSection />
-      <div id="menu">
-        <MenuSection />
-      </div>
-      <GallerySection />
-      <OrgChart />
-      <ContactSection />
-      <ScrollToTop />
-    </Layout>
+    <CartProvider>
+      <Layout>
+        <HeroSection />
+        <BestSellerSection />
+        <PromoSection />
+        <div id="menu">
+          <MenuSection />
+        </div>
+        <GallerySection />
+        <OrgChart />
+        <ContactSection />
+        <ScrollToTop />
+        <Cart />
+      </Layout>
+    </CartProvider>
   );
 }
 

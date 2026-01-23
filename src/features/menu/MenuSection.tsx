@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ChevronDown } from 'lucide-react';
+import { Search, ChevronDown, ShoppingCart } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
 import { MENU_ITEMS } from '../../data/mockData';
+import { useCart } from '../../contexts/CartContext';
 
 const categories = ["Semua", "Sarapan", "Nasi & Lauk", "Mee & Bihun", "Grab & Go", "Western", "Minuman", "Pencuci Mulut"];
 const ITEMS_PER_PAGE = 6;
@@ -11,6 +12,7 @@ export function MenuSection() {
     const [activeCategory, setActiveCategory] = useState("Semua");
     const [searchQuery, setSearchQuery] = useState("");
     const [itemsToShow, setItemsToShow] = useState(ITEMS_PER_PAGE);
+    const { addItem } = useCart();
 
     const filteredItems = MENU_ITEMS.filter(item => {
         const matchesCategory = activeCategory === "Semua" || item.category === activeCategory;
@@ -111,6 +113,13 @@ export function MenuSection() {
                                                 ))}
                                             </div>
                                         )}
+                                        <button
+                                            onClick={() => addItem(item)}
+                                            className="mt-3 flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
+                                        >
+                                            <ShoppingCart size={16} />
+                                            Tambah ke Troli
+                                        </button>
                                     </div>
                                 </div>
                                 <div className="mt-6 border-b border-border/50 border-dashed" />
