@@ -1,6 +1,6 @@
 # PowerShell script to convert HTML to PDF using Microsoft Edge
-$htmlPath = "C:\Users\User\.gemini\antigravity\scratch\fnb-website\Dayang_Cafe_Business_Profile.html"
-$pdfPath = "C:\Users\User\.gemini\antigravity\scratch\fnb-website\Dayang_Cafe_Business_Profile.pdf"
+$htmlPath = "C:\Users\User\.gemini\antigravity\scratch\fnb-website\Profil_Perniagaan_Dayang_Cafe.html"
+$pdfPath = "C:\Users\User\.gemini\antigravity\scratch\fnb-website\Profil_Perniagaan_Dayang_Cafe.pdf"
 
 # Check if Microsoft Edge is available
 $edgePath = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
@@ -11,9 +11,9 @@ if (-not (Test-Path $edgePath)) {
 if (Test-Path $edgePath) {
     # Use Edge to print to PDF
     Start-Process -FilePath $edgePath -ArgumentList "--headless", "--disable-gpu", "--print-to-pdf=`"$pdfPath`"", "`"$htmlPath`"" -Wait
-    Write-Host "PDF created successfully at: $pdfPath"
+    Write-Host "PDF Bahasa Melayu berjaya dicipta di: $pdfPath"
 } else {
-    Write-Host "Microsoft Edge not found. Trying alternative method..."
+    Write-Host "Microsoft Edge tidak dijumpai. Cuba kaedah alternatif..."
     
     # Alternative: Try using Chrome if available
     $chromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
@@ -23,8 +23,8 @@ if (Test-Path $edgePath) {
     
     if (Test-Path $chromePath) {
         Start-Process -FilePath $chromePath -ArgumentList "--headless", "--disable-gpu", "--print-to-pdf=`"$pdfPath`"", "`"$htmlPath`"" -Wait
-        Write-Host "PDF created successfully using Chrome at: $pdfPath"
+        Write-Host "PDF Bahasa Melayu berjaya dicipta menggunakan Chrome di: $pdfPath"
     } else {
-        Write-Host "Neither Edge nor Chrome found. Please install one of these browsers or use the HTML file to print to PDF manually."
+        Write-Host "Edge mahupun Chrome tidak dijumpai. Sila pasang salah satu daripada pelayar ini atau gunakan fail HTML untuk cetak ke PDF secara manual."
     }
 }

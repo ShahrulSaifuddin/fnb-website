@@ -26,7 +26,7 @@ export function Cart() {
         const encodedMessage = encodeURIComponent(message);
 
         // Open WhatsApp with the message
-        window.open(`https://wa.me/60194401878?text=${encodedMessage}`, '_blank');
+        window.open(`https://wa.me/60194411878?text=${encodedMessage}`, '_blank');
 
         // Optionally clear cart after sending
         // clearCart();

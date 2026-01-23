@@ -22,7 +22,7 @@ export function HeroSection() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     <span className="inline-block py-1 px-3 rounded-full bg-primary/20 border border-primary/50 text-primary-foreground text-sm font-medium mb-6 backdrop-blur-md">
-                        Kafe Komuniti
+                        Kafe Kampus
                     </span>
                 </motion.div>
 
