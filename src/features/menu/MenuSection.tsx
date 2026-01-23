@@ -1,29 +1,44 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search } from 'lucide-react';
+import { Search, ChevronDown } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
 import { MENU_ITEMS } from '../../data/mockData';
 
-const categories = ["All", "Food", "Drinks", "Desserts"];
+const categories = ["Semua", "Sarapan", "Nasi & Lauk", "Mee & Bihun", "Grab & Go", "Western", "Minuman", "Pencuci Mulut"];
+const ITEMS_PER_PAGE = 6;
 
 export function MenuSection() {
-    const [activeCategory, setActiveCategory] = useState("All");
+    const [activeCategory, setActiveCategory] = useState("Semua");
     const [searchQuery, setSearchQuery] = useState("");
+    const [itemsToShow, setItemsToShow] = useState(ITEMS_PER_PAGE);
 
     const filteredItems = MENU_ITEMS.filter(item => {
-        const matchesCategory = activeCategory === "All" || item.category === activeCategory;
+        const matchesCategory = activeCategory === "Semua" || item.category === activeCategory;
         const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
             item.description.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
     });
 
+    const displayedItems = filteredItems.slice(0, itemsToShow);
+    const hasMore = itemsToShow < filteredItems.length;
+
+    const handleLoadMore = () => {
+        setItemsToShow(prev => prev + ITEMS_PER_PAGE);
+    };
+
+    const handleCategoryChange = (category: string) => {
+        setActiveCategory(category);
+        setItemsToShow(ITEMS_PER_PAGE); // Reset to initial count when changing category
+    };
+
     return (
         <section id="menu" className="py-20 md:py-32 bg-background">
-            <div className="container px-4 md:px-6">
+            <div className="container px-6 md:px-12">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
                     <div>
-                        <h2 className="text-3xl md:text-5xl font-bold font-serif mb-4">Our <span className="text-primary">Menu</span></h2>
-                        <p className="text-muted-foreground">Fresh ingredients, specially curated for you.</p>
+                        <h2 className="text-3xl md:text-5xl font-bold font-serif mb-4">Menu <span className="text-primary">Kami</span></h2>
+                        <p className="text-muted-foreground">Hidangan segar, disediakan khas untuk anda.</p>
+                        <p className="text-xs text-muted-foreground/60 italic mt-2">* Gambar hanya sekadar hiasan/ilustrasi</p>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
@@ -32,7 +47,7 @@ export function MenuSection() {
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                             <input
                                 type="text"
-                                placeholder="Search menu..."
+                                placeholder="Cari menu..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 className="w-full sm:w-64 pl-10 pr-4 py-2 rounded-full border bg-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/20"
@@ -42,25 +57,27 @@ export function MenuSection() {
                 </div>
 
                 {/* Categories */}
-                <div className="flex flex-wrap gap-2 mb-12">
-                    {categories.map((category) => (
-                        <button
-                            key={category}
-                            onClick={() => setActiveCategory(category)}
-                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category
-                                ? "bg-primary text-primary-foreground shadow-lg scale-105"
-                                : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                                }`}
-                        >
-                            {category}
-                        </button>
-                    ))}
+                <div className="flex gap-2 mb-12 overflow-x-auto scrollbar-hide pb-2 -mx-6 px-6 md:-mx-12 md:px-12">
+                    <div className="flex gap-2 min-w-max">
+                        {categories.map((category) => (
+                            <button
+                                key={category}
+                                onClick={() => handleCategoryChange(category)}
+                                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${activeCategory === category
+                                    ? "bg-primary text-primary-foreground shadow-lg scale-105"
+                                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                                    }`}
+                            >
+                                {category}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Menu Grid */}
                 <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-12">
                     <AnimatePresence mode="popLayout">
-                        {filteredItems.map((item) => (
+                        {displayedItems.map((item) => (
                             <motion.div
                                 layout
                                 key={item.id}
@@ -81,7 +98,7 @@ export function MenuSection() {
                                         <div>
                                             <div className="flex justify-between items-start mb-1">
                                                 <h3 className="font-bold text-lg font-serif">{item.name}</h3>
-                                                <span className="font-bold text-primary font-mono">${item.price.toFixed(2)}</span>
+                                                <span className="font-bold text-primary font-mono">RM {item.price.toFixed(2)}</span>
                                             </div>
                                             <p className="text-muted-foreground text-sm line-clamp-2">{item.description}</p>
                                         </div>
@@ -102,11 +119,25 @@ export function MenuSection() {
                     </AnimatePresence>
                 </motion.div>
 
+                {/* Load More Button */}
+                {hasMore && (
+                    <div className="flex justify-center mt-12">
+                        <Button
+                            onClick={handleLoadMore}
+                            size="lg"
+                            variant="outline"
+                            className="gap-2"
+                        >
+                            Lihat Lagi <ChevronDown size={18} />
+                        </Button>
+                    </div>
+                )}
+
                 {filteredItems.length === 0 && (
                     <div className="text-center py-20 text-muted-foreground">
-                        <p>No items found matching your criteria.</p>
-                        <Button variant="ghost" className="mt-4" onClick={() => { setSearchQuery(""); setActiveCategory("All"); }}>
-                            Clear Filters
+                        <p>Tiada item yang sepadan dengan kriteria anda.</p>
+                        <Button variant="ghost" className="mt-4" onClick={() => { setSearchQuery(""); setActiveCategory("Semua"); }}>
+                            Kosongkan Penapis
                         </Button>
                     </div>
                 )}

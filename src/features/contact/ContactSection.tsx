@@ -5,7 +5,7 @@ import { Button } from '../../components/ui/Button';
 export function ContactSection() {
     return (
         <section id="contact" className="py-20 md:py-32 bg-secondary/30">
-            <div className="container px-4 md:px-6">
+            <div className="container px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                     {/* Info */}
@@ -32,7 +32,7 @@ export function ContactSection() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-lg mb-1">Opening Hours</h3>
-                                    <p className="text-muted-foreground">Mon - Fri: 11am - 10pm<br />Sat - Sun: 10am - 11pm</p>
+                                    <p className="text-muted-foreground">Mon - Fri: 7:00 AM - 5:00 PM<br />Sat - Sun: <span className="text-red-500 font-medium">Closed</span></p>
                                 </div>
                             </div>
 

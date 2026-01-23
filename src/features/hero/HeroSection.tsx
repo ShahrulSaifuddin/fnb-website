@@ -16,14 +16,14 @@ export function HeroSection() {
             </div>
 
             {/* Content */}
-            <div className="container relative z-10 px-4 md:px-6 text-center text-white">
+            <div className="container relative z-10 px-6 md:px-12 text-center text-white">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     <span className="inline-block py-1 px-3 rounded-full bg-primary/20 border border-primary/50 text-primary-foreground text-sm font-medium mb-6 backdrop-blur-md">
-                        Established 2012
+                        Kafe Komuniti
                     </span>
                 </motion.div>
 
@@ -33,17 +33,16 @@ export function HeroSection() {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="text-4xl md:text-6xl lg:text-7xl font-bold font-serif mb-6 leading-tight"
                 >
-                    Taste the <span className="text-primary italic">Extraordinary</span>
+                    Dayang <span className="text-primary italic">Café</span>
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
-                    className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto"
+                    className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto italic"
                 >
-                    Experience a symphony of flavors crafted with passion and fresh ingredients.
-                    The perfect destination for your next culinary adventure.
+                    "Kafe komuniti yang menyajikan makanan panas, mee, nasi goreng dan minuman pada harga mampu milik."
                 </motion.p>
 
                 <motion.div
@@ -55,7 +54,7 @@ export function HeroSection() {
                     <Button size="lg" className="group">
                         View Menu <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </Button>
-                    <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-black">
+                    <Button size="lg" variant="outline" className="text-primary border-white hover:bg-white hover:text-black">
                         Book a Table
                     </Button>
                 </motion.div>

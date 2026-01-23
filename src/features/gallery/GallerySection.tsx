@@ -8,7 +8,7 @@ export function GallerySection() {
 
     return (
         <section id="gallery" className="py-20 bg-secondary/20">
-            <div className="container px-4 md:px-6">
+            <div className="container px-6 md:px-12">
                 <h2 className="text-3xl md:text-5xl font-bold font-serif mb-12 text-center">Grand <span className="text-primary">Gallery</span></h2>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">

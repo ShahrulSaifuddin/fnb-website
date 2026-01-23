@@ -6,7 +6,7 @@ import { PROMOTIONS } from '../../data/mockData';
 export function PromoSection() {
     return (
         <section id="promos" className="py-20 md:py-32 bg-background">
-            <div className="container px-4 md:px-6">
+            <div className="container px-6 md:px-12">
                 <h2 className="text-3xl md:text-5xl font-bold font-serif mb-12 text-center">Special <span className="text-primary">Promotions</span></h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">

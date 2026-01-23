@@ -30,11 +30,14 @@ export function Navbar() {
                 scrolled ? "bg-background/80 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
             )}
         >
-            <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+            <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
                 {/* Logo */}
-                <a href="#" className="text-2xl font-bold font-serif tracking-tighter text-foreground flex items-center gap-2">
-                    <span className="bg-primary text-primary-foreground w-10 h-10 rounded-full flex items-center justify-center">F</span>
-                    <span>Flavor<span className="text-primary">Fusion</span></span>
+                <a href="#" className={cn(
+                    "text-2xl font-bold font-serif tracking-tighter flex items-center gap-2 transition-colors",
+                    scrolled ? "text-foreground" : "text-white"
+                )}>
+                    <span className="bg-primary text-primary-foreground w-10 h-10 rounded-full flex items-center justify-center">D</span>
+                    <span>Dayang <span className="text-primary">Café</span></span>
                 </a>
 
                 {/* Desktop Nav */}
@@ -43,7 +46,10 @@ export function Navbar() {
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium hover:text-primary transition-colors relative group"
+                            className={cn(
+                                "text-sm font-medium hover:text-primary transition-colors relative group",
+                                scrolled ? "text-foreground" : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                            )}
                         >
                             {link.name}
                             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
@@ -53,7 +59,14 @@ export function Navbar() {
 
                 {/* Actions */}
                 <div className="hidden md:flex items-center gap-4">
-                    <Button variant="ghost" size="sm" className="gap-2">
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        className={cn(
+                            "gap-2",
+                            !scrolled && "text-white hover:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                        )}
+                    >
                         <Phone size={18} />
                         <span>Call Us</span>
                     </Button>
@@ -65,7 +78,10 @@ export function Navbar() {
 
                 {/* Mobile Menu Toggle */}
                 <button
-                    className="md:hidden p-2 text-foreground"
+                    className={cn(
+                        "md:hidden p-2 transition-colors",
+                        scrolled ? "text-foreground" : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                    )}
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}

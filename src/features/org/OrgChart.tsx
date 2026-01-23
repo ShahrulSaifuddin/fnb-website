@@ -4,7 +4,7 @@ import { Card } from '../../components/ui/Card';
 export function OrgChart() {
     return (
         <section className="py-20 bg-background">
-            <div className="container px-4 md:px-6">
+            <div className="container px-6 md:px-12">
                 <h2 className="text-3xl md:text-5xl font-bold font-serif mb-16 text-center">Meet the <span className="text-primary">Team</span></h2>
 
                 <div className="flex flex-wrap justify-center gap-10">

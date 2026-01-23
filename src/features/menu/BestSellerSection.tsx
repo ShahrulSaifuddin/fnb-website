@@ -9,7 +9,7 @@ export function BestSellerSection() {
 
     return (
         <section className="py-20 md:py-32 bg-secondary/30">
-            <div className="container px-4 md:px-6">
+            <div className="container px-6 md:px-12">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold font-serif mb-4">Our <span className="text-primary">Best Sellers</span></h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -44,7 +44,7 @@ export function BestSellerSection() {
                                 <div className="p-6 flex-1 flex flex-col">
                                     <div className="flex justify-between items-start mb-2">
                                         <h3 className="text-xl font-bold font-serif">{item.name}</h3>
-                                        <span className="text-lg font-bold text-primary">${item.price.toFixed(2)}</span>
+                                        <span className="text-lg font-bold text-primary">RM {item.price.toFixed(2)}</span>
                                     </div>
                                     <p className="text-muted-foreground text-sm mb-6 flex-1">{item.description}</p>
                                     <Button className="w-full" variant="outline">Add to Cart</Button>
