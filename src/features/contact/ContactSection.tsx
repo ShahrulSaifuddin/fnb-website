@@ -41,7 +41,7 @@ export function ContactSection() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-lg mb-1">Contact Info</h3>
-                                    <p className="text-muted-foreground">0194411878<br />dayang@cafe.com</p>
+                                    <p className="text-muted-foreground">0194411878<br />sbm81@gmail.com</p>
                                 </div>
                             </div>
                         </div>
