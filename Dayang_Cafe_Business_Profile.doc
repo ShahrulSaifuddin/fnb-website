@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayang Café - Business Profile</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 3px solid #8B4513;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #8B4513;
+            font-size: 2.5em;
+            margin: 10px 0;
+            font-weight: 700;
+        }
+
+        .tagline {
+            color: #D4A574;
+            font-size: 1.2em;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        h2 {
+            color: #8B4513;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #D4A574;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #A0522D;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .interior-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box {
+            background: #FFF8DC;
+            border-left: 4px solid #8B4513;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .menu-category {
+            background: #F5F5DC;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #D4A574;
+        }
+
+        .menu-category h4 {
+            color: #8B4513;
+            margin-top: 0;
+            font-size: 1.1em;
+            border-bottom: 1px solid #D4A574;
+            padding-bottom: 8px;
+        }
+
+        .menu-item {
+            margin: 8px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .menu-item:before {
+            content: "•";
+            color: #8B4513;
+            position: absolute;
+            left: 0;
+        }
+
+        .price-range {
+            color: #A0522D;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .highlight {
+            background: #FFE4B5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .promo-box {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .promo-box h4 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #8B4513;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #FFF8DC;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #D4A574;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .contact-info {
+            background: #F5F5DC;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .team-member {
+            background: #FFF8DC;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .team-member h4 {
+            color: #8B4513;
+            margin: 10px 0 5px 0;
+        }
+
+        .team-member p {
+            color: #A0522D;
+            font-style: italic;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="C:/Users/User/.gemini/antigravity/brain/4503aaa9-b336-44a9-9a8e-1d81dee496c9/dayang_cafe_logo_1769172436323.png"
+            alt="Dayang Café Logo" class="logo">
+        <h1>DAYANG CAFÉ</h1>
+        <p class="tagline">Kafe Komuniti - Your Campus Dining Destination</p>
+    </div>
+
+    <div class="section">
+        <h2>📋 Executive Summary</h2>
+        <div class="info-box">
+            <p><strong>Business Name:</strong> Dayang Café</p>
+            <p><strong>Type:</strong> Kafe Komuniti (Community Campus Café)</p>
+            <p><strong>Specialty:</strong> Malaysian Traditional Cuisine & Hot Meals</p>
+            <p><strong>Target Market:</strong> University Students, Faculty, and Campus Community</p>
+            <p><strong>Established:</strong> 2023</p>
+        </div>
+
+        <img src="C:/Users/User/.gemini/antigravity/brain/4503aaa9-b336-44a9-9a8e-1d81dee496c9/cafe_food_spread_1769172455424.png"
+            alt="Dayang Café Food Spread" class="hero-image">
+    </div>
+
+    <div class="section">
+        <h2>🎯 About Dayang Café</h2>
+        <p>Dayang Café is a vibrant campus café dedicated to serving authentic Malaysian cuisine to the university
+            community. Our mission is to provide students and staff with delicious, affordable, and nutritious meals in
+            a welcoming environment.</p>
+
+        <p>We specialize in traditional Malaysian dishes including hot meals (mee, nasi goreng, and more), as well as
+            popular favorites like nasi kerabu, nasi dagang, nasi lemak, and nasi hujan panas. Every dish is prepared
+            fresh daily with quality ingredients and traditional recipes.</p>
+
+        <img src="C:/Users/User/.gemini/antigravity/brain/4503aaa9-b336-44a9-9a8e-1d81dee496c9/cafe_interior_1769172474726.png"
+            alt="Dayang Café Interior" class="interior-image">
+    </div>
+
+    <div class="section">
+        <h2>🍽️ Our Menu Categories</h2>
+
+        <div class="menu-grid">
+            <div class="menu-category">
+                <h4>🌅 Sarapan / Menu Pagi (Breakfast)</h4>
+                <div class="menu-item">Nasi Lemak Bungkus - RM 2.50</div>
+                <div class="menu-item">Nasi Lemak Ayam - RM 4.00</div>
+                <div class="menu-item">Roti Canai - RM 1.80</div>
+                <div class="menu-item">Roti Telur - RM 2.80</div>
+                <div class="menu-item">Mee Goreng - RM 3.00</div>
+                <div class="menu-item">Nasi Goreng Kampung - RM 5.00</div>
+                <div class="menu-item">Lontong - RM 5.00</div>
+                <div class="menu-item">Kuih-Muih - RM 1.00 - 1.50</div>
+            </div>
+
+            <div class="menu-category">
+                <h4>🍚 Nasi & Lauk (Rice & Dishes)</h4>
+                <div class="menu-item">Nasi + Ayam Goreng - RM 6.00</div>
+                <div class="menu-item">Nasi + Ayam Masak Merah - RM 6.00</div>
+                <div class="menu-item">Nasi + Ikan Goreng - RM 6.00</div>
+                <div class="menu-item">Nasi + Daging Masak Kicap - RM 6.90</div>
+                <div class="menu-item">Nasi + Sayur + Telur - RM 4.00</div>
+                <div class="menu-item">Nasi Campur - RM 4.00 - 10.00</div>
+                <div class="menu-item">Nasi Ayam Penyet - RM 7.90</div>
+            </div>
+
+            <div class="menu-category">
+                <h4>🍜 Mee, Bihun & Kwetiaw</h4>
+                <div class="menu-item">Mee Goreng Biasa (Telur) - RM 5.90</div>
+                <div class="menu-item">Mee Goreng Ayam - RM 6.90</div>
+                <div class="menu-item">Mee Goreng Daging - RM 7.90</div>
+                <div class="menu-item">Mee Goreng Seafood - RM 8.90</div>
+            </div>
+
+            <div class="menu-category">
+                <h4>🥪 Grab & Go (Quick Meals)</h4>
+                <div class="menu-item">Sandwich Telur - RM 4.00</div>
+                <div class="menu-item">Burger Ayam - RM 4.00</div>
+                <div class="menu-item">Burger Daging - RM 4.00</div>
+                <div class="menu-item">Hotdog Bun - RM 3.00</div>
+            </div>
+
+            <div class="menu-category">
+                <h4>🍝 Western</h4>
+                <div class="menu-item">Chicken Chop - RM 8.90</div>
+                <div class="menu-item">Spaghetti Bolognese - RM 5.90</div>
+            </div>
+
+            <div class="menu-category">
+                <h4>☕ Minuman (Beverages)</h4>
+                <div class="menu-item">Teh Tarik - RM 3.00</div>
+                <div class="menu-item">Milo Panas - RM 3.00</div>
+                <div class="menu-item">Kopi O - RM 3.00</div>
+                <div class="menu-item">Air Limau - RM 2.00</div>
+            </div>
+
+            <div class="menu-category">
+                <h4>🍨 Pencuci Mulut (Desserts)</h4>
+                <div class="menu-item">Bubur Kacang - RM 3.00</div>
+                <div class="menu-item">Agar-Agar Cup - RM 1.00</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>⭐ Best Sellers</h2>
+        <p>Our most popular dishes that keep customers coming back:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dish Name</th>
+                    <th>Category</th>
+                    <th>Price (RM)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nasi Lemak Bungkus</td>
+                    <td>Sarapan</td>
+                    <td>2.50</td>
+                </tr>
+                <tr>
+                    <td>Nasi Lemak Ayam</td>
+                    <td>Sarapan</td>
+                    <td>4.00</td>
+                </tr>
+                <tr>
+                    <td>Nasi Goreng Kampung</td>
+                    <td>Sarapan</td>
+                    <td>5.00</td>
+                </tr>
+                <tr>
+                    <td>Nasi + Ayam Goreng</td>
+                    <td>Nasi & Lauk</td>
+                    <td>6.00</td>
+                </tr>
+                <tr>
+                    <td>Nasi Campur</td>
+                    <td>Nasi & Lauk</td>
+                    <td>4.00 - 10.00</td>
+                </tr>
+                <tr>
+                    <td>Mee Goreng Ayam</td>
+                    <td>Mee & Bihun</td>
+                    <td>6.90</td>
+                </tr>
+                <tr>
+                    <td>Burger Ayam</td>
+                    <td>Grab & Go</td>
+                    <td>4.00</td>
+                </tr>
+                <tr>
+                    <td>Teh Tarik</td>
+                    <td>Minuman</td>
+                    <td>3.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>🎁 Special Promotions</h2>
+
+        <div class="promo-box">
+            <h4>Set Bajet - Jimat & Kenyang</h4>
+            <p><strong>Offer:</strong> Nasi + Telur + Sayur hanya RM 6.00 sahaja!</p>
+            <p><strong>Validity:</strong> Setiap Hari</p>
+            <p>Sempurna untuk bajet harian pelajar.</p>
+        </div>
+
+        <div class="promo-box">
+            <h4>Set Standard - Pilihan Popular</h4>
+            <p><strong>Offer:</strong> Nasi + Ayam + Sayur + Minuman hanya RM 10.00</p>
+            <p><strong>Validity:</strong> Isnin - Jumaat</p>
+            <p>Paling laris di kalangan pelajar!</p>
+        </div>
+
+        <div class="promo-box">
+            <h4>Sarapan Pagi Istimewa</h4>
+            <p><strong>Offer:</strong> Nasi Lemak Bungkus + Teh Tarik hanya RM 5.00</p>
+            <p><strong>Validity:</strong> Setiap Pagi 7AM - 10AM</p>
+            <p>Mulakan hari anda dengan sarapan tradisional!</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>💰 Price Range Overview</h2>
+        <div class="info-box">
+            <p><span class="highlight">Budget-Friendly:</span> <span class="price-range">RM 1.00 - RM 4.00</span></p>
+            <p>Perfect for students on a tight budget. Includes kuih-muih, drinks, sandwiches, and burgers.</p>
+
+            <p><span class="highlight">Mid-Range:</span> <span class="price-range">RM 4.00 - RM 7.00</span></p>
+            <p>Our most popular price point. Includes nasi lemak, rice with dishes, and mee goreng.</p>
+
+            <p><span class="highlight">Premium:</span> <span class="price-range">RM 7.00 - RM 10.00</span></p>
+            <p>Special dishes and western meals like chicken chop, seafood mee goreng, and nasi campur.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>👥 Our Team</h2>
+        <p>Meet the dedicated team behind Dayang Café:</p>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <h4>Dayang</h4>
+                <p>Pemilik / Pengarah (Owner / Director)</p>
+            </div>
+
+            <div class="team-member">
+                <h4>Azhar</h4>
+                <p>Pengurus Operasi (Operations Manager)</p>
+            </div>
+
+            <div class="team-member">
+                <h4>Staf Dapur</h4>
+                <p>Café Cook / Kitchen Lead</p>
+            </div>
+
+            <div class="team-member">
+                <h4>Staf Hadapan</h4>
+                <p>Barista & Servis Pelanggan (Customer Service)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🌟 Our Unique Value Proposition</h2>
+        <ul style="line-height: 2;">
+            <li><strong>Authentic Malaysian Cuisine:</strong> Traditional recipes prepared with care and quality
+                ingredients</li>
+            <li><strong>Student-Friendly Pricing:</strong> Affordable meals starting from RM 1.00</li>
+            <li><strong>Fresh Daily Preparation:</strong> All dishes cooked fresh every day</li>
+            <li><strong>Diverse Menu:</strong> Over 30 different dishes across 7 categories</li>
+            <li><strong>Quick Service:</strong> Grab & Go options for busy students</li>
+            <li><strong>Special Promotions:</strong> Daily deals and combo sets for maximum value</li>
+            <li><strong>Community Atmosphere:</strong> A welcoming space for students to dine and socialize</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📊 Business Highlights</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total Menu Items</td>
+                    <td>31+ dishes</td>
+                </tr>
+                <tr>
+                    <td>Menu Categories</td>
+                    <td>7 main categories</td>
+                </tr>
+                <tr>
+                    <td>Price Range</td>
+                    <td>RM 1.00 - RM 10.00</td>
+                </tr>
+                <tr>
+                    <td>Best Sellers</td>
+                    <td>8 signature dishes</td>
+                </tr>
+                <tr>
+                    <td>Daily Promotions</td>
+                    <td>3 special combo sets</td>
+                </tr>
+                <tr>
+                    <td>Operating Hours</td>
+                    <td>7:00 AM - 10:00 PM (Campus hours)</td>
+                </tr>
+                <tr>
+                    <td>Service Style</td>
+                    <td>Dine-in & Grab & Go</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Target Market</h2>
+        <div class="info-box">
+            <h3>Primary Target:</h3>
+            <ul>
+                <li>University students seeking affordable, quality meals</li>
+                <li>Faculty and staff looking for convenient campus dining</li>
+                <li>Students preferring traditional Malaysian cuisine</li>
+            </ul>
+
+            <h3>Secondary Target:</h3>
+            <ul>
+                <li>Campus visitors and guests</li>
+                <li>Local community members</li>
+                <li>Event catering for campus functions</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>💡 Competitive Advantages</h2>
+        <ol style="line-height: 2;">
+            <li><strong>Strategic Location:</strong> Situated within campus premises for maximum accessibility</li>
+            <li><strong>Authentic Taste:</strong> Traditional Malaysian recipes that remind students of home</li>
+            <li><strong>Value for Money:</strong> Generous portions at student-friendly prices</li>
+            <li><strong>Variety:</strong> Extensive menu catering to different tastes and dietary preferences</li>
+            <li><strong>Consistency:</strong> Reliable quality and service every day</li>
+            <li><strong>Community Focus:</strong> Creating a welcoming space for the campus community</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>📞 Contact Information</h2>
+        <div class="contact-info">
+            <p><strong>Business Name:</strong> Dayang Café</p>
+            <p><strong>Type:</strong> Kafe Komuniti (Community Campus Café)</p>
+            <p><strong>Location:</strong> Campus Premises</p>
+            <p><strong>Specialty:</strong> Malaysian Traditional Cuisine & Hot Meals</p>
+            <p><strong>Operating Hours:</strong> 7:00 AM - 10:00 PM (Daily)</p>
+            <p><strong>Special Hours:</strong> Breakfast Promotion 7:00 AM - 10:00 AM</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Dayang Café - Kafe Komuniti</strong></p>
+        <p>Serving the Campus Community with Authentic Malaysian Cuisine</p>
+        <p style="margin-top: 20px; font-size: 0.8em;">© 2023-2026 Dayang Café. All rights reserved.</p>
+        <p style="font-size: 0.8em;">Document prepared on January 23, 2026</p>
+    </div>
+</body>
+
+</html>
