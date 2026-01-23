@@ -1,6 +1,5 @@
 
 import { MapPin, Phone, Clock } from 'lucide-react';
-import { Button } from '../../components/ui/Button';
 
 export function ContactSection() {
     return (
@@ -22,7 +21,7 @@ export function ContactSection() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-lg mb-1">Visit Us</h3>
-                                    <p className="text-muted-foreground">123 Gourmet Street<br />Foodie City, FC 12345</p>
+                                    <p className="text-muted-foreground">UTM<br />Jalan Semarak</p>
                                 </div>
                             </div>
 
@@ -42,14 +41,20 @@ export function ContactSection() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-lg mb-1">Contact Info</h3>
-                                    <p className="text-muted-foreground">+1 (555) 123-4567<br />hello@flavorfusion.com</p>
+                                    <p className="text-muted-foreground">0194411878<br />dayang@cafe.com</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="mt-12 flex gap-4">
-                            <Button size="lg" className="w-full sm:w-auto">Book a Table</Button>
-                            <Button size="lg" variant="outline" className="w-full sm:w-auto">WhatsApp</Button>
+                        <div className="mt-12">
+                            <a
+                                href="https://wa.me/60194411878"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium border-2 border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
+                            >
+                                WhatsApp
+                            </a>
                         </div>
                     </div>
 

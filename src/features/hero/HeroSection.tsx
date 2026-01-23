@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Button } from '../../components/ui/Button';
 import { ArrowRight } from 'lucide-react';
 
 export function HeroSection() {
@@ -49,14 +48,14 @@ export function HeroSection() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
-                    className="flex flex-col sm:flex-row gap-4 justify-center"
+                    className="flex justify-center"
                 >
-                    <Button size="lg" className="group">
+                    <a
+                        href="#menu"
+                        className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors group"
+                    >
                         View Menu <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                    <Button size="lg" variant="outline" className="text-primary border-white hover:bg-white hover:text-black">
-                        Book a Table
-                    </Button>
+                    </a>
                 </motion.div>
             </div>
 

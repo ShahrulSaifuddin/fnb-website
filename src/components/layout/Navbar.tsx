@@ -59,17 +59,18 @@ export function Navbar() {
 
                 {/* Actions */}
                 <div className="hidden md:flex items-center gap-4">
-                    <Button
-                        variant="ghost"
-                        size="sm"
+                    <a
+                        href="https://wa.me/60194411878"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={cn(
-                            "gap-2",
+                            "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-accent",
                             !scrolled && "text-white hover:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
                         )}
                     >
                         <Phone size={18} />
                         <span>Call Us</span>
-                    </Button>
+                    </a>
                     <Button size="sm" className="gap-2">
                         <ShoppingBag size={18} />
                         Order Now

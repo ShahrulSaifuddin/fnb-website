@@ -330,7 +330,7 @@ export const PROMOTIONS = [
         title: 'Set Bajet - Jimat & Kenyang',
         description: 'Nasi + Telur + Sayur hanya RM 6.00 sahaja! Sempurna untuk bajet harian.',
         validity: 'Setiap Hari',
-        code: 'SETBAJET',
+        code: 'SET BAJET',
         image: 'https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=600&q=80'
     },
     {
@@ -338,7 +338,7 @@ export const PROMOTIONS = [
         title: 'Set Standard - Pilihan Popular',
         description: 'Nasi + Ayam + Sayur + Minuman hanya RM 10.00. Paling laris!',
         validity: 'Isnin - Jumaat',
-        code: 'SETSTANDARD',
+        code: 'SET STANDARD',
         image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=600&q=80'
     },
     {
