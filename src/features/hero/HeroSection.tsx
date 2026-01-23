@@ -41,7 +41,7 @@ export function HeroSection() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto italic"
                 >
-                    "Kafe komuniti yang menyajikan makanan panas, mee, nasi goreng dan minuman pada harga mampu milik."
+                    "Kafe kampus yang menyajikan masakan panas (mee, nasi goreng dan lain-lain), makanan lain seperti nasi kerabu, nasi dagang, nasi lemak, nasi hujan panas."
                 </motion.p>
 
                 <motion.div

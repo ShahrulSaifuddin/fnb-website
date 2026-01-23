@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayang Café Website Presentation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .slide {
+            width: 210mm;
+            height: 297mm;
+            padding: 40px;
+            background: white;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .slide:last-child {
+            margin-bottom: 0;
+        }
+        
+        .header {
+            border-bottom: 4px solid #f97316;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1f2937;
+        }
+        
+        .logo span {
+            color: #f97316;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 25px;
+            border-left: 6px solid #f97316;
+            padding-left: 20px;
+        }
+        
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #f97316;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        li {
+            font-size: 18px;
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #4b5563;
+        }
+        
+        li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f97316;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #f97316;
+        }
+        
+        .feature-box h4 {
+            color: #92400e;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .feature-box p {
+            color: #78350f;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .tech-badge {
+            background: #f97316;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 6px solid #f97316;
+            margin: 20px 0;
+        }
+        
+        .screenshot-placeholder {
+            background: #f3f4f6;
+            border: 2px dashed #d1d5db;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            color: #6b7280;
+            margin: 20px 0;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title Slide -->
+    <div class="slide">
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <div class="logo" style="font-size: 64px; margin-bottom: 30px;">
+                Dayang <span>Café</span>
+            </div>
+            <h1 style="font-size: 56px; margin-bottom: 20px;">Website Presentation</h1>
+            <p style="font-size: 24px; color: #6b7280; margin-bottom: 40px;">
+                Modern F&B Website with E-Commerce Features
+            </p>
+            <div style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; padding: 15px 40px; border-radius: 30px; font-size: 20px; font-weight: 600;">
+                Built with React + Vite + Tailwind CSS
+            </div>
+        </div>
+        <div class="footer">
+            Dayang Café © 2026 | Slide 1
+        </div>
+    </div>
+
+    <!-- Slide 2: Project Overview -->
+    <div class="slide">
+        <div class="header">
+            <div class="logo">Dayang <span>Café</span></div>
+        </div>
+        
+        <h2>📋 Project Overview</h2>
+        
+        <p style="font-size: 20px; margin-bottom: 30px;">
+            A comprehensive food & beverage website designed for <strong>Dayang Café</strong>, featuring a modern design, 
+            full menu catalog, and integrated WhatsApp ordering system.
+        </p>
+        
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">31+</div>
+                <div class="stat-label">Menu Items</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Mobile Responsive</div>
+            </div>
+        </div>
+        
+        <div class="highlight">
+            <h3 style="margin-top: 0;">🎯 Primary Goal</h3>
+            <p style="margin: 0;">
+                Create an engaging online presence that allows customers to browse the menu, 
+                view promotions, and place orders directly via WhatsApp - all in a beautiful, 
+                user-friendly interface.
+            </p>
+        </div>
+        
+        <div class="footer">
+            Dayang Café © 2026 | Slide 2
+        </div>
+    </div>
+
+    <!-- Slide 3: Key Features -->
+    <div class="slide">
+        <div class="header">
+            <div class="logo">Dayang <span>Café</span></div>
+        </div>
+        
+        <h2>✨ Key Features</h2>
+        
+        <div class="feature-grid">
+            <div class="feature-box">
+                <h4>🏠 Hero Section</h4>
+                <p>Eye-catching landing with smooth animations and call-to-action buttons</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🍽️ Interactive Menu</h4>
+                <p>Categorized menu with search, filters, and beautiful food imagery</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🛒 Shopping Cart</h4>
+                <p>Full cart functionality with quantity controls and localStorage persistence</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>💬 WhatsApp Integration</h4>
+                <p>Direct ordering via WhatsApp with formatted order messages</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🎉 Promotions</h4>
+                <p>Special offers and combo deals displayed prominently</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>📸 Gallery</h4>
+                <p>Showcase café atmosphere and food presentation</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>👥 Team Section</h4>
+                <p>Meet the people behind Dayang Café</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>📍 Contact Info</h4>
+                <p>Location, hours, and direct contact methods</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Dayang Café © 2026 | Slide 3
+        </div>
+    </div>
+
+    <!-- Slide 4: Technology Stack -->
+    <div class="slide">
+        <div class="header">
+            <div class="logo">Dayang <span>Café</span></div>
+        </div>
+        
+        <h2>🛠️ Technology Stack</h2>
+        
+        <h3>Frontend Framework</h3>
+        <div class="tech-stack">
+            <div class="tech-badge">React 18</div>
+            <div class="tech-badge">TypeScript</div>
+            <div class="tech-badge">Vite</div>
+        </div>
+        
+        <h3>Styling & UI</h3>
+        <div class="tech-stack">
+            <div class="tech-badge">Tailwind CSS v3</div>
+            <div class="tech-badge">Framer Motion</div>
+            <div class="tech-badge">Lucide Icons</div>
+        </div>
+        
+        <h3>State Management</h3>
+        <div class="tech-stack">
+            <div class="tech-badge">React Context API</div>
+            <div class="tech-badge">localStorage</div>
+        </div>
+        
+        <h3>Development Tools</h3>
+        <div class="tech-stack">
+            <div class="tech-badge">Git & GitHub</div>
+            <div class="tech-badge">ESLint</div>
+            <div class="tech-badge">PostCSS</div>
+        </div>
+        
+        <div class="highlight" style="margin-top: 30px;">
+            <h3 style="margin-top: 0;">💡 Why This Stack?</h3>
+            <ul style="margin: 10px 0;">
+                <li>Fast development with Vite's HMR</li>
+                <li>Type safety with TypeScript</li>
+                <li>Beautiful animations with Framer Motion</li>
+                <li>Responsive design with Tailwind CSS</li>
+                <li>No backend required - fully static deployment</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            Dayang Café © 2026 | Slide 4
+        </div>
+    </div>
+
+    <!-- Slide 5: Shopping Cart System -->
+    <div class="slide">
+        <div class="header">
+            <div class="logo">Dayang <span>Café</span></div>
+        </div>
+        
+        <h2>🛒 Shopping Cart System</h2>
+        
+        <p style="font-size: 20px; margin-bottom: 25px;">
+            A complete e-commerce cart solution integrated with WhatsApp for seamless ordering.
+        </p>
+        
+        <h3>Cart Features</h3>
+        <ul>
+            <li><strong>Add to Cart:</strong> One-click button on every menu item</li>
+            <li><strong>Quantity Control:</strong> Increase/decrease quantities with +/- buttons</li>
+            <li><strong>Remove Items:</strong> Easy item removal from cart</li>
+            <li><strong>Real-time Total:</strong> Automatic price calculation</li>
+            <li><strong>Persistent Storage:</strong> Cart saved to localStorage</li>
+            <li><strong>Item Counter Badge:</strong> Visual indicator of cart items</li>
+        </ul>
+        
+        <h3>WhatsApp Order Flow</h3>
+        <div class="highlight">
+            <ol style="list-style: decimal; padding-left: 20px;">
+                <li style="padding-left: 10px;"><strong>Customer adds items</strong> to cart while browsing menu</li>
+                <li style="padding-left: 10px;"><strong>Reviews order</strong> in the cart sidebar</li>
+                <li style="padding-left: 10px;"><strong>Clicks "Hantar ke WhatsApp"</strong> button</li>
+                <li style="padding-left: 10px;"><strong>WhatsApp opens</strong> with pre-formatted order message</li>
+                <li style="padding-left: 10px;"><strong>Message includes:</strong> Item names, quantities, prices, and total</li>
+                <li style="padding-left: 10px;"><strong>Customer sends</strong> to café's WhatsApp (0194401878)</li>
+            </ol>
+        </div>
+        
+        <div class="footer">
+            Dayang Café © 2026 | Slide 5
+        </div>
+    </div>
+
+    <!-- Slide 6: Menu Categories -->
+    <div class="slide">
+        <div class="header">
+            <div class="logo">Dayang <span>Café</span></div>
+        </div>
+        
+        <h2>🍽️ Menu Categories</h2>
+        
+        <div class="feature-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="feature-box">
+                <h4>☀️ Sarapan</h4>
+                <p>8 breakfast items including Nasi Lemak, Roti Canai, Mee Goreng</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🍚 Nasi & Lauk</h4>
+                <p>7 rice dishes with various proteins and sides</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🍜 Mee & Bihun</h4>
+                <p>4 noodle varieties with different toppings</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🥪 Grab & Go</h4>
+                <p>4 quick meals - sandwiches, burgers, hotdogs</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🍝 Western</h4>
+                <p>2 Western dishes - Chicken Chop, Spaghetti</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>☕ Minuman</h4>
+                <p>4 beverages - Teh Tarik, Milo, Kopi, Air Limau</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🍰 Pencuci Mulut</h4>
+                <p>2 desserts - Bubur Kacang, Agar-Agar</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>⭐ Best Sellers</h4>
+                <p>Featured popular items across categories</p>
+            </div>
+        </div>
+        
+        <div class="highlight" style="margin-top: 20px;">
+            <h3 style="margin-top: 0;">📊 Menu Features</h3>
+            <ul style="margin: 0;">
+                <li>Search functionality to find items quickly</li>
+                <li>Category filtering for easy navigation</li>
+                <li>High-quality food photography</li>
+                <li>Price display in Malaysian Ringgit (RM)</li>
+                <li>Tags for Popular, Best Seller, Vegetarian items</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            Dayang Café © 2026 | Slide 6
+        </div>
+    </div>
+
+    <!-- Slide 7: Design Highlights -->
+    <div class="slide">
+        <div class="header">
+            <div class="logo">Dayang <span>Café</span></div>
+        </div>
+        
+        <h2>🎨 Design Highlights</h2>
+        
+        <h3>Color Palette</h3>
+        <div style="display: flex; gap: 15px; margin: 20px 0;">
+            <div style="flex: 1; background: #f97316; color: white; padding: 30px; border-radius: 8px; text-align: center; font-weight: 600;">
+                Primary Orange<br>#f97316
+            </div>
+            <div style="flex: 1; background: #1f2937; color: white; padding: 30px; border-radius: 8px; text-align: center; font-weight: 600;">
+                Dark Gray<br>#1f2937
+            </div>
+            <div style="flex: 1; background: #fef3c7; color: #78350f; padding: 30px; border-radius: 8px; text-align: center; font-weight: 600;">
+                Light Accent<br>#fef3c7
+            </div>
+        </div>
+        
+        <h3>UI/UX Features</h3>
+        <ul>
+            <li><strong>Smooth Scrolling:</strong> Elegant page navigation with smooth scroll behavior</li>
+            <li><strong>Scroll-to-Top Button:</strong> Floating button appears after scrolling 300px</li>
+            <li><strong>Responsive Design:</strong> Optimized for mobile, tablet, and desktop</li>
+            <li><strong>Animations:</strong> Framer Motion for entrance and interaction animations</li>
+            <li><strong>Hover Effects:</strong> Interactive feedback on buttons and cards</li>
+            <li><strong>Loading States:</strong> Lazy loading for images</li>
+        </ul>
+        
+        <h3>Accessibility</h3>
+        <ul>
+            <li>Semantic HTML structure</li>
+            <li>Proper heading hierarchy</li>
+            <li>Alt text for all images</li>
+            <li>Keyboard navigation support</li>
+            <li>High contrast text for readability</li>
+        </ul>
+        
+        <div class="footer">
+            Dayang Café © 2026 | Slide 7
+        </div>
+    </div>
+
+    <!-- Slide 8: Project Structure -->
+    <div class="slide">
+        <div class="header">
+            <div class="logo">Dayang <span>Café</span></div>
+        </div>
+        
+        <h2>📁 Project Structure</h2>
+        
+        <div style="background: #1f2937; color: #e5e7eb; padding: 25px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.8; margin: 20px 0;">
+fnb-website/<br>
+├── src/<br>
+│   ├── components/<br>
+│   │   ├── cart/          <span style="color: #10b981;">← Cart UI</span><br>
+│   │   ├── layout/        <span style="color: #10b981;">← Navbar, Footer</span><br>
+│   │   └── ui/            <span style="color: #10b981;">← Reusable components</span><br>
+│   ├── contexts/          <span style="color: #10b981;">← CartContext</span><br>
+│   ├── features/<br>
+│   │   ├── hero/          <span style="color: #10b981;">← Landing section</span><br>
+│   │   ├── menu/          <span style="color: #10b981;">← Menu & Best Sellers</span><br>
+│   │   ├── promo/         <span style="color: #10b981;">← Promotions</span><br>
+│   │   ├── gallery/       <span style="color: #10b981;">← Photo gallery</span><br>
+│   │   ├── org/           <span style="color: #10b981;">← Team section</span><br>
+│   │   └── contact/       <span style="color: #10b981;">← Contact info</span><br>
+│   ├── data/              <span style="color: #10b981;">← Menu items, promos</span><br>
+│   ├── App.tsx            <span style="color: #10b981;">← Main app</span><br>
+│   └── index.css          <span style="color: #10b981;">← Global styles</span><br>
+├── public/                <span style="color: #10b981;">← Static assets</span><br>
+└── package.json           <span style="color: #10b981;">← Dependencies</span>
+        </div>
+        
+        <div class="highlight">
+            <h3 style="margin-top: 0;">🏗️ Architecture Principles</h3>
+            <ul style="margin: 0;">
+                <li><strong>Component-Based:</strong> Modular, reusable components</li>
+                <li><strong>Feature-Driven:</strong> Organized by business features</li>
+                <li><strong>Type-Safe:</strong> TypeScript for better code quality</li>
+                <li><strong>Separation of Concerns:</strong> Clear separation of UI, logic, and data</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            Dayang Café © 2026 | Slide 8
+        </div>
+    </div>
+
+    <!-- Slide 9: Deployment & Performance -->
+    <div class="slide">
+        <div class="header">
+            <div class="logo">Dayang <span>Café</span></div>
+        </div>
+        
+        <h2>🚀 Deployment & Performance</h2>
+        
+        <h3>Deployment Options</h3>
+        <div class="feature-grid">
+            <div class="feature-box">
+                <h4>GitHub Pages</h4>
+                <p>Free hosting with automatic deployments from repository</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>Vercel</h4>
+                <p>Zero-config deployment with global CDN</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>Netlify</h4>
+                <p>Continuous deployment with form handling</p>
+            </div>
+            
+            <div class="feature-box">
+                <h4>Custom Server</h4>
+                <p>Deploy to any static hosting provider</p>
+            </div>
+        </div>
+        
+        <h3>Performance Optimizations</h3>
+        <ul>
+            <li><strong>Vite Build:</strong> Fast bundling with code splitting</li>
+            <li><strong>Image Optimization:</strong> Lazy loading for images</li>
+            <li><strong>CSS Purging:</strong> Tailwind removes unused styles</li>
+            <li><strong>Minification:</strong> Compressed JS and CSS in production</li>
+            <li><strong>Caching:</strong> localStorage for cart persistence</li>
+        </ul>
+        
+        <h3>Version Control</h3>
+        <div class="highlight">
+            <p style="margin: 0;"><strong>Repository:</strong> github.com/ShahrulSaifuddin/fnb-website</p>
+            <p style="margin: 10px 0 0 0;"><strong>Latest Commits:</strong></p>
+            <ul style="margin: 10px 0 0 0;">
+                <li>Shopping cart implementation</li>
+                <li>WhatsApp integration</li>
+                <li>Menu repricing</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            Dayang Café © 2026 | Slide 9
+        </div>
+    </div>
+
+    <!-- Slide 10: Future Enhancements -->
+    <div class="slide">
+        <div class="header">
+            <div class="logo">Dayang <span>Café</span></div>
+        </div>
+        
+        <h2>🔮 Future Enhancements</h2>
+        
+        <h3>Short Term (1-3 months)</h3>
+        <ul>
+            <li><strong>Online Payment:</strong> Integrate payment gateway (e.g., Stripe, PayPal)</li>
+            <li><strong>Order Tracking:</strong> Real-time order status updates</li>
+            <li><strong>Customer Accounts:</strong> Save favorites and order history</li>
+            <li><strong>Reviews & Ratings:</strong> Customer feedback system</li>
+            <li><strong>Loyalty Program:</strong> Points and rewards for repeat customers</li>
+        </ul>
+        
+        <h3>Medium Term (3-6 months)</h3>
+        <ul>
+            <li><strong>Backend Integration:</strong> Database for menu and orders</li>
+            <li><strong>Admin Dashboard:</strong> Manage menu, prices, and orders</li>
+            <li><strong>Analytics:</strong> Track popular items and customer behavior</li>
+            <li><strong>Email Notifications:</strong> Order confirmations and updates</li>
+            <li><strong>Multi-language:</strong> Support for English and Bahasa Malaysia</li>
+        </ul>
+        
+        <h3>Long Term (6+ months)</h3>
+        <ul>
+            <li><strong>Mobile App:</strong> Native iOS and Android applications</li>
+            <li><strong>Delivery Integration:</strong> Partner with delivery services</li>
+            <li><strong>Table Reservations:</strong> Online booking system</li>
+            <li><strong>Inventory Management:</strong> Real-time stock tracking</li>
+        </ul>
+        
+        <div class="footer">
+            Dayang Café © 2026 | Slide 10
+        </div>
+    </div>
+
+    <!-- Slide 11: Thank You -->
+    <div class="slide">
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <div class="logo" style="font-size: 72px; margin-bottom: 40px;">
+                Dayang <span>Café</span>
+            </div>
+            
+            <h1 style="font-size: 64px; margin-bottom: 30px;">Thank You!</h1>
+            
+            <p style="font-size: 24px; color: #6b7280; margin-bottom: 50px;">
+                Questions & Discussion
+            </p>
+            
+            <div style="background: #f3f4f6; padding: 30px; border-radius: 12px; width: 100%; max-width: 600px;">
+                <h3 style="color: #1f2937; margin-bottom: 20px;">Contact Information</h3>
+                <p style="font-size: 18px; margin: 10px 0;">📞 WhatsApp: 0194401878</p>
+                <p style="font-size: 18px; margin: 10px 0;">📧 Email: dayang@cafe.com</p>
+                <p style="font-size: 18px; margin: 10px 0;">📍 Location: UTM, Jalan Semarak</p>
+                <p style="font-size: 18px; margin: 10px 0;">🌐 GitHub: ShahrulSaifuddin/fnb-website</p>
+            </div>
+            
+            <div style="margin-top: 50px; background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; padding: 15px 40px; border-radius: 30px; font-size: 20px; font-weight: 600;">
+                Visit us at Dayang Café!
+            </div>
+        </div>
+        
+        <div class="footer">
+            Dayang Café © 2026 | Slide 11
+        </div>
+    </div>
+</body>
+</html>

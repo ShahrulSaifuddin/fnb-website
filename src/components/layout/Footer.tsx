@@ -9,7 +9,7 @@ export function Footer() {
                     <div className="space-y-4">
                         <div className="text-2xl font-bold font-serif">Dayang <span className="text-primary">Café</span></div>
                         <p className="text-muted-foreground italic text-sm">
-                            "Kafe komuniti yang menyajikan makanan panas, mee, nasi goreng dan minuman pada harga mampu milik."
+                            "Kafe kampus yang menyajikan makanan panas, mee, nasi goreng dan minuman pada harga mampu milik."
                         </p>
                         <div className="flex gap-4">
                             <a href="#" className="p-2 bg-background rounded-full hover:text-primary transition-colors shadow-sm"><Instagram size={20} /></a>
