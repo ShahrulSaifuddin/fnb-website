@@ -28,10 +28,10 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
-            <h3 className="text-3xl font-bold mb-4 text-blue-200">
+            <h3 className="text-3xl font-bold mb-4 text-primary">
               Authentic Flavors at Campus
             </h3>
-            <p className="text-lg mb-8 text-gray-300 leading-relaxed">
+            <p className="text-lg mb-8 text-muted-foreground dark:text-gray-300 leading-relaxed">
               "Kafe kampus yang menyajikan masakan panas (mee, nasi goreng dan
               lain-lain), makanan lain seperti nasi kerabu, nasi dagang, nasi
               lemak, nasi hujan panas."

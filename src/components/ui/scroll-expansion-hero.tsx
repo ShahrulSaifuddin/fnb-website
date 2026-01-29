@@ -41,31 +41,42 @@ const ScrollExpandMedia = ({
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
-      // Only capture scroll if we haven't scrolled past the component
-      // We need to be careful with global window scroll hijacking
-      // This logic assumes the component is at the top or we want to capture scroll specifically
-
-      if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY <= 5) {
-        setMediaFullyExpanded(false);
-        e.preventDefault();
-      } else if (!mediaFullyExpanded) {
-        // Check if we are at the top of the page before intercepting
-        if (window.scrollY > 100) return;
-
-        e.preventDefault();
-        const scrollDelta = e.deltaY * 0.0009;
-        const newProgress = Math.min(
-          Math.max(scrollProgress + scrollDelta, 0),
-          1,
-        );
-        setScrollProgress(newProgress);
-
-        if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
-          setShowContent(true);
-        } else if (newProgress < 0.75) {
-          setShowContent(false);
+      // If we are already fully expanded, we mostly want to behave normally
+      // EXCEPT if we are at the very top and scrolling UP, then we collapse.
+      if (mediaFullyExpanded) {
+        if (e.deltaY < 0 && window.scrollY <= 10) {
+          e.preventDefault();
+          setMediaFullyExpanded(false);
         }
+        // Otherwise, let native scroll happen!
+        // This was likely blocking anchor links or fast scrolls before?
+        // Actually, previous logic was fine here.
+        return;
+      }
+
+      // If NOT fully expanded, we want to capture the scroll to run the animation
+      // BUT, we must be careful not to trap the user if they really want to leave
+      // or if an anchor link just jumped them down.
+
+      // If the page is already scrolled down significantly (e.g. anchor link)
+      // we assume they bypassed the animation.
+      if (window.scrollY > 50) return;
+
+      // Otherwise, hijack scroll for animation
+      e.preventDefault();
+      const scrollDelta = e.deltaY * 0.0009;
+      const newProgress = Math.min(
+        Math.max(scrollProgress + scrollDelta, 0),
+        1,
+      );
+
+      setScrollProgress(newProgress);
+
+      if (newProgress >= 1) {
+        setMediaFullyExpanded(true);
+        setShowContent(true);
+      } else if (newProgress < 0.75) {
+        setShowContent(false);
       }
     };
 
@@ -111,8 +122,21 @@ const ScrollExpandMedia = ({
     };
 
     const handleScroll = (): void => {
+      // If we are NOT expanded, but the window has scrolled down significantly (e.g. anchor link)
+      // we should effectively "skip" the animation and mark it as expanded.
       if (!mediaFullyExpanded) {
-        window.scrollTo(0, 0);
+        if (window.scrollY > 50) {
+          // User likely anchor-linked past the hero.
+          // Snap to expanded state so we don't trap them or force scroll back.
+          setMediaFullyExpanded(true);
+          setScrollProgress(1);
+          setShowContent(true);
+        } else {
+          // Only force scroll to top if we are truly at the top attempting animations
+          // But honestly, forcing scroll(0,0) is dangerous.
+          // We'll rely on wheel hijacking for the 'stay at top' effect.
+          // window.scrollTo(0, 0); // REMOVED THIS AGGRESSIVE RESET
+        }
       }
     };
 
@@ -281,7 +305,7 @@ const ScrollExpandMedia = ({
                 <div className="flex flex-col items-center text-center relative z-10 mt-4 transition-none">
                   {date && (
                     <p
-                      className="text-2xl text-blue-200"
+                      className="text-2xl text-primary"
                       style={{ transform: `translateX(-${textTranslateX}vw)` }}
                     >
                       {date}
@@ -289,7 +313,7 @@ const ScrollExpandMedia = ({
                   )}
                   {scrollToExpand && (
                     <p
-                      className="text-blue-200 font-medium text-center"
+                      className="text-white/80 font-medium text-center"
                       style={{ transform: `translateX(${textTranslateX}vw)` }}
                     >
                       {scrollToExpand}
@@ -304,13 +328,13 @@ const ScrollExpandMedia = ({
                 }`}
               >
                 <motion.h2
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-200 transition-none"
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-white transition-none"
                   style={{ transform: `translateX(-${textTranslateX}vw)` }}
                 >
                   {firstWord}
                 </motion.h2>
                 <motion.h2
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-blue-200 transition-none"
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white transition-none"
                   style={{ transform: `translateX(${textTranslateX}vw)` }}
                 >
                   {restOfTitle}
