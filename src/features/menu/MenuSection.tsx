@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, ChevronDown, ShoppingCart } from "lucide-react";
+import { Search, ChevronDown } from "lucide-react";
 import { Button } from "../../components/ui/Button";
 import { MENU_ITEMS } from "../../data/mockData";
 import { useCart } from "../../contexts/CartContext";
+import { ProductCard } from "../../components/ui/Card";
 
 const categories = [
   "Semua",
@@ -100,7 +101,7 @@ export function MenuSection() {
         {/* Menu Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
             {displayedItems.map((item) => (
@@ -112,51 +113,20 @@ export function MenuSection() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="glass-card p-4 h-full hover:bg-white/10 transition-colors">
-                  <div className="flex gap-4 group h-full">
-                    <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden shrink-0 shadow-md">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                    <div className="flex-1 flex flex-col justify-between py-1">
-                      <div>
-                        <div className="flex justify-between items-start mb-1">
-                          <h3 className="font-bold text-lg font-serif">
-                            {item.name}
-                          </h3>
-                          <span className="font-bold text-primary font-mono glass px-2 py-0.5 rounded text-sm">
-                            RM {item.price.toFixed(2)}
-                          </span>
-                        </div>
-                        <p className="text-muted-foreground text-sm line-clamp-2">
-                          {item.description}
-                        </p>
-                      </div>
-                      {item.tags.length > 0 && (
-                        <div className="flex gap-2 mt-2">
-                          {item.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="text-[10px] uppercase font-bold tracking-wider px-2 py-1 glass rounded text-muted-foreground"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                      <button
-                        onClick={() => addItem(item)}
-                        className="mt-3 flex items-center gap-2 px-4 py-2 glass-btn-primary rounded-lg transition-all text-sm font-medium w-fit"
-                      >
-                        <ShoppingCart size={16} />
-                        Tambah
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <ProductCard
+                  product={{
+                    id: item.id,
+                    name: item.name,
+                    category: item.category,
+                    price: item.price,
+                    image: item.image,
+                    description: item.description,
+                    inStock: true, // Assuming true for now
+                    rating: 4.5 + (Number(item.id) % 5) / 10, // Mock rating
+                    reviews: 10 + Number(item.id) * 2, // Mock reviews
+                  }}
+                  onAddToCart={(p) => addItem({ ...item, id: String(p.id) })}
+                />
               </motion.div>
             ))}
           </AnimatePresence>
