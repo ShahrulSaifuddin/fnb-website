@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { cn } from "../../lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ChevronDown } from "lucide-react";
 import { Button } from "../../components/ui/Button";
@@ -86,11 +87,12 @@ export function MenuSection() {
               <button
                 key={category}
                 onClick={() => handleCategoryChange(category)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap glass-btn ${
+                className={cn(
+                  "px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap border",
                   activeCategory === category
-                    ? "bg-primary/90 text-primary-foreground shadow-lg scale-105 border-primary/50"
-                    : "bg-white/5 hover:bg-white/10"
-                }`}
+                    ? "bg-primary text-primary-foreground border-primary shadow-lg scale-105"
+                    : "bg-white/10 text-muted-foreground border-white/10 hover:bg-white/20 hover:text-foreground backdrop-blur-md",
+                )}
               >
                 {category}
               </button>
