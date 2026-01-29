@@ -1,33 +1,44 @@
 import { TEAM_MEMBERS } from "../../data/mockData";
-import { Card } from "../../components/ui/Card";
+import { ImageAccordion } from "../../components/ui/interactive-image-accordion";
 
 export function OrgChart() {
+  // Transform TEAM_MEMBERS to match AccordionItem interface
+  const accordionItems = TEAM_MEMBERS.map((member, index) => ({
+    id: index,
+    title: member.name + " - " + member.role, // Combining name and role for the label
+    imageUrl: member.image,
+  }));
+
   return (
-    <section className="py-20 glass-section">
+    <section className="py-20 glass-section bg-black text-white">
       <div className="container px-6 md:px-12">
         <h2 className="text-3xl md:text-5xl font-bold font-serif mb-16 text-center">
-          Meet the <span className="text-primary">Team</span>
+          Meet the <span className="text-primary italic">Team</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-10">
-          {/* Simple linear layout for now, can be tree structure if needed, but cards look cleaner for 'About' style */}
-          {TEAM_MEMBERS.map((member, index) => (
-            <Card
-              key={index}
-              className="w-full sm:max-w-xs text-center p-6 transition-all hover:-translate-y-2"
-            >
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white/20 shadow-inner">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-              <p className="text-primary font-medium mb-4">{member.role}</p>
-              <div className="w-10 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent mx-auto rounded-full" />
-            </Card>
-          ))}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          {/* Left Side: Text Content */}
+          <div className="w-full lg:w-1/3 text-center lg:text-left space-y-6">
+            <h3 className="text-2xl md:text-4xl font-bold leading-tight">
+              Passion on a Plate, <br />
+              <span className="text-primary">Served with a Smile.</span>
+            </h3>
+            <p className="text-muted-foreground text-lg">
+              Behind every delicious meal is a dedicated team of chefs,
+              baristas, and servers working in harmony. We take pride in
+              delivering not just food, but an unforgettable dining experience.
+            </p>
+            <div className="pt-4">
+              <button className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20">
+                Join Our Family
+              </button>
+            </div>
+          </div>
+
+          {/* Right Side: Image Accordion */}
+          <div className="w-full lg:w-2/3">
+            <ImageAccordion items={accordionItems} />
+          </div>
         </div>
       </div>
     </section>
