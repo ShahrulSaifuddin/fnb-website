@@ -9,24 +9,27 @@ import { OrgChart } from "./features/org/OrgChart";
 import { ContactSection } from "./features/contact/ContactSection";
 import { CartProvider } from "./contexts/CartProvider";
 import { Cart } from "./components/cart/Cart";
+import { ThemeProvider } from "next-themes";
 
 function App() {
   return (
-    <CartProvider>
-      <Layout>
-        <HeroSection />
-        <BestSellerSection />
-        <PromoSection />
-        <div id="menu">
-          <MenuSection />
-        </div>
-        <GallerySection />
-        <OrgChart />
-        <ContactSection />
-        <ScrollToTop />
-        <Cart />
-      </Layout>
-    </CartProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <CartProvider>
+        <Layout>
+          <HeroSection />
+          <BestSellerSection />
+          <PromoSection />
+          <div id="menu">
+            <MenuSection />
+          </div>
+          <GallerySection />
+          <OrgChart />
+          <ContactSection />
+          <ScrollToTop />
+          <Cart />
+        </Layout>
+      </CartProvider>
+    </ThemeProvider>
   );
 }
 

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ShoppingBag, Phone } from "lucide-react";
 import { Button } from "../ui/Button";
 import { cn } from "../../lib/utils";
+import { ToggleTheme } from "../ui/toggle-theme";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,6 +86,7 @@ export function Navbar() {
             <ShoppingBag size={18} />
             Order Now
           </Button>
+          <ToggleTheme />
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -126,6 +128,9 @@ export function Navbar() {
                 <Button variant="outline" className="w-full justify-center">
                   Call Us
                 </Button>
+                <div className="flex justify-center pt-2">
+                  <ToggleTheme />
+                </div>
               </div>
             </div>
           </motion.div>
