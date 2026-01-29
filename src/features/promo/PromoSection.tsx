@@ -18,7 +18,7 @@ export function PromoSection() {
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, margin: "-100px" }}
               className="relative overflow-hidden rounded-3xl h-[400px] md:h-[300px] group shadow-xl"
             >
               <img

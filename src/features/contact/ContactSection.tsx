@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { MapPin, Phone, Clock } from "lucide-react";
 
 export function ContactSection() {
@@ -6,7 +7,12 @@ export function ContactSection() {
       <div className="container px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Info */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
             <h2 className="text-3xl md:text-5xl font-bold font-serif mb-6">
               Get in <span className="text-primary">Touch</span>
             </h2>
@@ -70,10 +76,16 @@ export function ContactSection() {
                 WhatsApp
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Map / Image Placeholder */}
-          <div className="h-[400px] lg:h-[600px] glass-card p-4 shadow-xl rotate-1 lg:rotate-2 hover:rotate-0 transition-transform duration-500">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: false, margin: "-100px" }}
+            className="h-[400px] lg:h-[600px] glass-card p-4 shadow-xl hover:rotate-0 transition-transform duration-500"
+          >
             <div className="w-full h-full rounded-xl overflow-hidden bg-gray-200 relative">
               <iframe
                 src="https://www.google.com/maps?q=UTC%20Shah%20Alam&output=embed"
@@ -85,7 +97,7 @@ export function ContactSection() {
                 className="grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

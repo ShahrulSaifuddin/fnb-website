@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { TEAM_MEMBERS } from "../../data/mockData";
 import { ImageAccordion } from "../../components/ui/interactive-image-accordion";
 
@@ -12,13 +13,25 @@ export function OrgChart() {
   return (
     <section className="py-20 glass-section bg-black text-white">
       <div className="container px-6 md:px-12">
-        <h2 className="text-3xl md:text-5xl font-bold font-serif mb-16 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-5xl font-bold font-serif mb-16 text-center"
+        >
           Meet the <span className="text-primary italic">Team</span>
-        </h2>
+        </motion.h2>
 
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left Side: Text Content */}
-          <div className="w-full lg:w-1/3 text-center lg:text-left space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-full lg:w-1/3 text-center lg:text-left space-y-6"
+          >
             <h3 className="text-2xl md:text-4xl font-bold leading-tight">
               Passion on a Plate, <br />
               <span className="text-primary">Served with a Smile.</span>
@@ -33,12 +46,18 @@ export function OrgChart() {
                 Join Our Family
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side: Image Accordion */}
-          <div className="w-full lg:w-2/3">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="w-full lg:w-2/3"
+          >
             <ImageAccordion items={accordionItems} />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
