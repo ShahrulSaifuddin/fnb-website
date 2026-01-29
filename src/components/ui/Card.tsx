@@ -64,33 +64,38 @@ export const ProductCard = ({
   return (
     <div
       className={cn(
-        "max-w-sm mx-auto rounded-xl border shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group transform hover:scale-[1.02]",
-        "bg-card text-card-foreground border-border", // Uses theme variables for both light and dark mode
+        "max-w-full md:max-w-sm mx-auto rounded-xl border shadow-sm md:shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group transform md:hover:scale-[1.02]",
+        "bg-card text-card-foreground border-border",
+        "flex flex-row md:flex-col h-full md:h-auto items-stretch",
       )}
     >
       {/* Image Container */}
-      <div className="relative aspect-square overflow-hidden">
+      <div className="relative w-[140px] sm:w-[160px] md:w-full shrink-0 md:shrink md:aspect-square overflow-hidden">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 absolute inset-0 md:static"
         />
 
-        {/* Wishlist Button */}
+        {/* Wishlist Button - Adjusted position for mobile */}
         <button
           onClick={handleWishlistClick}
           className={cn(
-            "absolute top-4 right-4 p-2.5 rounded-full transition-all duration-200 hover:scale-110 shadow-lg backdrop-blur-sm",
-            "bg-background/80 hover:bg-background text-muted-foreground hover:text-foreground", // Thematic coloring
+            "absolute top-2 right-2 md:top-4 md:right-4 p-1.5 md:p-2.5 rounded-full transition-all duration-200 hover:scale-110 shadow-lg backdrop-blur-sm z-10",
+            "bg-background/80 hover:bg-background text-muted-foreground hover:text-foreground",
             isWishlisted && "text-red-500 hover:text-red-600",
           )}
         >
-          <Heart size={20} fill={isWishlisted ? "currentColor" : "none"} />
+          <Heart
+            size={16}
+            className="md:w-5 md:h-5"
+            fill={isWishlisted ? "currentColor" : "none"}
+          />
         </button>
 
         {/* Sale Badge */}
         {product.salePrice && (
-          <div className="absolute top-4 left-4 bg-destructive text-destructive-foreground px-3 py-1.5 rounded-full text-sm font-bold shadow-lg">
+          <div className="absolute top-2 left-2 md:top-4 md:left-4 bg-destructive text-destructive-foreground px-2 py-1 md:px-3 md:py-1.5 rounded-full text-[10px] md:text-sm font-bold shadow-lg z-10">
             -
             {Math.round(
               ((product.price - product.salePrice) / product.price) * 100,
@@ -101,8 +106,8 @@ export const ProductCard = ({
 
         {/* Stock Badge */}
         {!product.inStock && (
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-            <span className="bg-destructive text-destructive-foreground px-4 py-2 rounded-full font-semibold">
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-20">
+            <span className="bg-destructive text-destructive-foreground px-2 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-base font-semibold text-center">
               Out of Stock
             </span>
           </div>
@@ -110,77 +115,82 @@ export const ProductCard = ({
       </div>
 
       {/* Content */}
-      <div className="p-6">
-        {/* Category */}
-        <p className="text-xs uppercase tracking-wider font-semibold mb-2 text-muted-foreground">
-          {product.category}
-        </p>
+      <div className="p-3 md:p-6 flex flex-col flex-1 justify-between">
+        <div>
+          {/* Category */}
+          <p className="text-[10px] md:text-xs uppercase tracking-wider font-semibold mb-1 md:mb-2 text-muted-foreground">
+            {product.category}
+          </p>
 
-        {/* Product Name */}
-        <h3 className="font-bold text-xl mb-3 leading-tight line-clamp-2">
-          {product.name}
-        </h3>
+          {/* Product Name */}
+          <h3 className="font-bold text-sm md:text-xl mb-1 md:mb-3 leading-tight line-clamp-2">
+            {product.name}
+          </h3>
 
-        {/* Rating */}
-        <div className="flex items-center mb-4">
-          <div className="flex items-center mr-2">
-            {[...Array(5)].map((_, i) => (
-              <Star
-                key={i}
-                size={16}
-                className={cn(
-                  i < Math.floor(product.rating || 0)
-                    ? "text-yellow-400 fill-current"
-                    : "text-muted-foreground/30",
-                )}
-              />
-            ))}
+          {/* Rating */}
+          <div className="flex items-center mb-2 md:mb-4 hidden sm:flex">
+            <div className="flex items-center mr-2">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  size={14}
+                  className={cn(
+                    "w-3 h-3 md:w-4 md:h-4",
+                    i < Math.floor(product.rating || 0)
+                      ? "text-yellow-400 fill-current"
+                      : "text-muted-foreground/30",
+                  )}
+                />
+              ))}
+            </div>
+            <span className="text-xs md:text-sm font-medium text-muted-foreground">
+              {product.rating || 4.5} ({product.reviews || 10} reviews)
+            </span>
           </div>
-          <span className="text-sm font-medium text-muted-foreground">
-            {product.rating || 4.5} ({product.reviews || 10} reviews)
-          </span>
         </div>
 
-        {/* Price */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-baseline space-x-2">
-            {product.salePrice ? (
-              <>
-                <span className="text-2xl font-bold text-destructive">
-                  RM {product.salePrice.toFixed(2)}
-                </span>
-                <span className="text-lg line-through text-muted-foreground">
+        <div>
+          {/* Price */}
+          <div className="flex items-center justify-between mb-2 md:mb-6">
+            <div className="flex items-baseline gap-1.5 md:gap-2">
+              {product.salePrice ? (
+                <>
+                  <span className="text-sm md:text-2xl font-bold text-destructive">
+                    RM {product.salePrice.toFixed(2)}
+                  </span>
+                  <span className="text-xs md:text-lg line-through text-muted-foreground">
+                    RM {product.price.toFixed(2)}
+                  </span>
+                </>
+              ) : (
+                <span className="text-sm md:text-2xl font-bold text-primary">
                   RM {product.price.toFixed(2)}
                 </span>
-              </>
-            ) : (
-              <span className="text-2xl font-bold text-primary">
-                RM {product.price.toFixed(2)}
+              )}
+            </div>
+
+            {product.inStock && (
+              <span className="hidden sm:inline-block text-[10px] md:text-sm text-green-600 dark:text-green-400 font-semibold bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded-full whitespace-nowrap">
+                In Stock
               </span>
             )}
           </div>
 
-          {product.inStock && (
-            <span className="text-xs sm:text-sm text-green-600 dark:text-green-400 font-semibold bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded-full whitespace-nowrap">
-              In Stock
-            </span>
-          )}
+          {/* Add to Cart Button */}
+          <button
+            onClick={handleAddToCart}
+            disabled={!product.inStock}
+            className={cn(
+              "w-full py-2 md:py-3.5 px-3 md:px-6 rounded-lg md:rounded-xl font-semibold transition-all duration-200 flex items-center justify-center space-x-2 text-primary-foreground text-xs md:text-base",
+              product.inStock
+                ? "bg-primary hover:bg-primary/90 hover:shadow-lg active:scale-95 transform"
+                : "bg-muted text-muted-foreground cursor-not-allowed",
+            )}
+          >
+            <ShoppingCart size={16} className="w-4 h-4 md:w-5 md:h-5" />
+            <span>{product.inStock ? "Add" : "No Stock"}</span>
+          </button>
         </div>
-
-        {/* Add to Cart Button */}
-        <button
-          onClick={handleAddToCart}
-          disabled={!product.inStock}
-          className={cn(
-            "w-full py-3.5 px-6 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center space-x-2 text-primary-foreground",
-            product.inStock
-              ? "bg-primary hover:bg-primary/90 hover:shadow-lg active:scale-95 transform"
-              : "bg-muted text-muted-foreground cursor-not-allowed",
-          )}
-        >
-          <ShoppingCart size={20} />
-          <span>{product.inStock ? "Add to Cart" : "Out of Stock"}</span>
-        </button>
       </div>
     </div>
   );
